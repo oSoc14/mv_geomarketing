@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,7 +10,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::when('*', 'csrf', array('post', 'put', 'delete'));
+Route::resource('stores', 'StoresController');
+Route::resource('coupons', 'CouponsController');
