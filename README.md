@@ -18,7 +18,8 @@ After that check if the routes are defined with :
 
     php artisan routes
     
-Normally they're should be two resources defined.
+There should be two resources defined.
+
 Then run:
 
     php artisan migrate
