@@ -1,10 +1,10 @@
 Geomarketing
 ===============
 
+Geomarketing application for the citylife platform.
+
 To run this project you should have installed a php server with mcrypt extension and composer.
 > [Install composer](https://getcomposer.org/doc/00-intro.md)
-
-Geomarketing application for the citylife platform.
 
 To run this laravel project.
 
