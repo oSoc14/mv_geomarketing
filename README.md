@@ -10,6 +10,7 @@ Begin by installing the required packages through Composer.
     composer update
     
 The php artisan commands should be ran from the terminal in the project directory.
+
 After that check if the routes are defined with :
 
     php artisan routes
