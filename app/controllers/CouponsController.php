@@ -17,9 +17,7 @@ class CouponsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$coupons = Coupon::all();
-
-		return View::make('coupons.index', compact('coupons'));
+		return Response::json(Coupon::all());
 	}
 
 	/**
@@ -29,7 +27,7 @@ class CouponsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('coupons.create');
+		return '';
 	}
 
 	/**
@@ -39,16 +37,17 @@ class CouponsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Coupon::$rules);
+		Coupon::create(array(
+			'type' => Input::get('type'),
+			'time_begin' =>  Input::get('time_begin'),
+			'time_end' =>  Input::get('time_end'),
+			'radius' => Input::get('radius'),
+			'name' => Input::get('name'),
+			'description' => Input::get('description'),
+			'user_id' => Input::get('user')
+		));
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		Coupon::create($data);
-
-		return Redirect::route('coupons.index');
+		return Response::json(array('success' => true));
 	}
 
 	/**
@@ -59,9 +58,7 @@ class CouponsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$coupon = Coupon::findOrFail($id);
-
-		return View::make('coupons.show', compact('coupon'));
+		return Response::json(Coupon::findOrFail($id));
 	}
 
 	/**
@@ -72,9 +69,7 @@ class CouponsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$coupon = Coupon::find($id);
-
-		return View::make('coupons.edit', compact('coupon'));
+		return '';
 	}
 
 	/**
@@ -85,6 +80,9 @@ class CouponsController extends \BaseController {
 	 */
 	public function update($id)
 	{
+
+		return '';
+
 		$coupon = Coupon::findOrFail($id);
 
 		$validator = Validator::make($data = Input::all(), Coupon::$rules);
@@ -109,7 +107,7 @@ class CouponsController extends \BaseController {
 	{
 		Coupon::destroy($id);
 
-		return Redirect::route('coupons.index');
+		return Response::json(array('success' => true));
 	}
 
 }

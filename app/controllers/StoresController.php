@@ -17,8 +17,6 @@ class StoresController extends \BaseController {
 	 */
 	public function index()
 	{
-		$stores = Store::all();
-                
                 /*$store = new Store;
                 $store->name = 'test';
                 $store->password = Hash::make('test');
@@ -27,7 +25,7 @@ class StoresController extends \BaseController {
                 $store->adres = 'President Kennedypark 10, 8500 Kortrijk';
                 $store->save();*/
 		
-                return View::make('stores.index', compact('stores'));
+		return Response::json(Store::all());
 	}
 
 	/**
@@ -37,7 +35,7 @@ class StoresController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('stores.create');
+		return 'not yet';
 	}
 
 	/**
@@ -47,16 +45,15 @@ class StoresController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Store::$rules);
+		Store::create(array(
+			'name' => Input::get('name'),
+			'password' => Hash::make(Input::get('password')),
+			'lat' => Input::get('lat'),
+			'long' => Input::get('long'),
+			'adres' => Input::get('addres')
+		));
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		Store::create($data);
-
-		return Redirect::route('stores.index');
+		return Response::json(array('success' => true));
 	}
 
 	/**
@@ -67,9 +64,7 @@ class StoresController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$store = Store::findOrFail($id);
-
-		return View::make('stores.show', compact('store'));
+		return Response::json(Store::findOrFail($id));
 	}
 
 	/**
@@ -80,9 +75,7 @@ class StoresController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$store = Store::find($id);
-
-		return View::make('stores.edit', compact('store'));
+		return 'not yet';
 	}
 
 	/**
@@ -117,7 +110,7 @@ class StoresController extends \BaseController {
 	{
 		Store::destroy($id);
 
-		return Redirect::route('stores.index');
+		return Response::json(array('success' => true));
 	}
 
 }
