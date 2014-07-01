@@ -1,5 +1,15 @@
 
+<div class="account">
+	<img src="img/michiel2.jpg">
+	<div class="account-content">
+		<h2>{{user.name}}</h2> <p>More info</p>
+	</div>
+</div>
+
 <article>
-	<h2>Username</h2>
-	<p>More info</p>
+	<p>Secret store owner control</p>
+	<p><select ng-model="user.store" ng-options="store.name for store in stores">
+		<option value="">Ik heb helemaal geen store</option>
+	</select></p>
+	<p ng-show="user.store.id"><a href="#/forms" class="btn btn-primary">Manage my store</a></p>
 </article>
