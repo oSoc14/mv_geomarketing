@@ -54,6 +54,13 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('basic.once', function()
+{
+    Config::set('session.driver', 'array');
+    return Auth::onceBasic('name');
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter

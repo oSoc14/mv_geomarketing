@@ -2,6 +2,14 @@
 
 class CouponsController extends \BaseController {
 
+        /**
+         * Instantiate a new CouponsController instance
+         */
+        public function __construct()
+        {
+            $this->beforeFilter('basic.once');
+        }
+
 	/**
 	 * Display a listing of coupons
 	 *

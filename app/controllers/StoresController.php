@@ -2,6 +2,14 @@
 
 class StoresController extends \BaseController {
 
+        /**
+         * Instantiate a new StoresController instance
+         */
+        public function __construct()
+        {
+              $this->beforeFilter('basic.once');
+        }
+
 	/**
 	 * Display a listing of stores
 	 *
@@ -10,8 +18,16 @@ class StoresController extends \BaseController {
 	public function index()
 	{
 		$stores = Store::all();
-
-		return View::make('stores.index', compact('stores'));
+                
+                /*$store = new Store;
+                $store->name = 'test';
+                $store->password = Hash::make('test');
+                $store->lat = 50.80009;
+                $store->long = 3.26968;
+                $store->adres = 'President Kennedypark 10, 8500 Kortrijk';
+                $store->save();*/
+		
+                return View::make('stores.index', compact('stores'));
 	}
 
 	/**
