@@ -110,7 +110,7 @@ angular.module('Store', [])
 	var all = [];
 	return {
 		fetch: function() {
-			return $http.get('http://localhost:8000/api/stores').success(function(d) {
+			return $http.get('/api/stores').success(function(d) {
 				all = angular.copy(d);
 				all[6].liked = true;
 				all[1].liked = true;
