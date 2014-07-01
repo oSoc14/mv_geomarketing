@@ -1,0 +1,119 @@
+
+/* Structure */
+body{
+	background-color: #E5E5E5;
+	font-family:'Roboto'!important;
+	color: #444
+}
+.container{
+	max-width: 400px;
+	margin: 0 auto;
+}
+header{
+	background: #f09;
+	color: #fff;
+	
+}
+header h1{
+	font-size: 20px;
+	padding-top: 8px;
+	line-height: 32px;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+/* Typography */
+article{
+	background: #fff;
+overflow: auto;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	margin: 8px 0;
+	padding: 16px;
+}
+article h2{
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 32px;
+	margin:0;
+}
+article p{
+	margin:8px 0 0; 
+}
+.smaller{
+	font-size: 14px;
+}
+.muted{
+	color: #aaa
+}
+.wrapped{
+	white-space: pre-wrap;
+}
+
+/* Nav */
+nav ul{
+	margin: 0
+}
+nav li{
+	float: left;
+	width: 33.3333%;
+	text-align: center;
+}
+nav a{
+	display: block;
+	line-height: 48px;
+	color: #fff;
+	text-transform: uppercase;
+	border-bottom: 2px solid transparent;
+}
+nav .active{
+	border-color: #ff6;
+}
+nav a:hover{
+	text-decoration: none;
+	color: #fff
+}
+
+/* QR overlay */
+.qr-active{
+	overflow: hidden;
+}
+.qr-active .qr-overlay{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+}
+.qr-active .qr-overlay{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+/* Actions */
+
+/* Stores */
+.favorite{
+	width: 44px;
+	height: 44px;
+	float: right;
+	margin: -6px;
+	padding: 12px 10px 8px;
+	border-radius: 50%;
+	background-color: #ccc;
+	fill:#fff;
+}
+.liked .favorite{
+	background-color: #eee;
+	fill:#f09;
+}
