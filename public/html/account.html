@@ -8,9 +8,9 @@
 </div>
 
 <article>
+	<p ng-show="user.store.id"><a href="#/forms" class="btn btn-primary">Manage my store</a></p>
 	<p>Secret store owner control</p>
 	<p><select ng-model="user.store" ng-options="store.name for store in stores">
-		<option value="">Ik heb helemaal geen store</option>
+		<option value="">I don't have a store</option>
 	</select></p>
-	<p ng-show="user.store.id"><a href="#/forms" class="btn btn-primary">Manage my store</a></p>
 </article>

@@ -18,7 +18,7 @@
 			<h1><a href="#/forms">GeoMarketing</a></h1>
 			<nav>
 				<ul>
-					<li><a href="#/actions" ng-class="{active:page=='actions'}">Actions</a></li>
+					<li><a href="#/actions" ng-class="{active:page=='actions'}">Vouchers</a></li>
 					<li><a href="#/stores" ng-class="{active:page=='stores'}">Stores</a></li>
 					<li><a href="#/account" ng-class="{active:page=='account'}">Account</a></li>
 				</ul>

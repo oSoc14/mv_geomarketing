@@ -36,16 +36,23 @@ angular.module('geom', ['ngRoute', 'Voucher', 'Store'])
 		$scope.stores = Stores.get();
 	});
 	$scope.storePredicate = 'liked';
-	$scope.user = {name:'Michiel De Wilde'};
+	$scope.user = {
+		name:'Michiel De Wilde',
+		lat: 50.82,
+		long: 3.22
+	};
 
-	$scope.generateQr = function(id){
+	$scope.generateQr = function(msg){
 		$scope.qrActive = true;
 		qr.canvas({
 			canvas: document.getElementById('qrcode'),
-			value: 'message',
+			value: msg,
 			size: 10
 		});
 		return false;
+	};
+	$scope.getDiff = function(lat,lng){
+		return getDistanceFromLatLon(lat,lng,$scope.user.lat,$scope.user.long);
 	};
 })
 
@@ -112,13 +119,16 @@ angular.module('Store', [])
 		fetch: function() {
 			return $http.get('/api/stores').success(function(d) {
 				all = angular.copy(d);
+				angular.forEach(function (post) {
+					post.liked = 0;
+					console.log(post);
+				});
 				if(all[6])
-					all[6].liked = true;
+					all[6].liked = 1;
 				if(all[1])
-					all[1].liked = true;
+					all[1].liked = 1;
 				if(all[3])
-					all[3].liked = true;
-				Alertify.log.success('Stores fetched');
+					all[3].liked = 1;
 			});
 		},
 		get: function() {
@@ -129,3 +139,23 @@ angular.module('Store', [])
 		}
 	};
 });
+
+
+
+function getDistanceFromLatLon(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1); 
+  var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ; 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = Math.round(R * c * 1000); // Distance in m
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}

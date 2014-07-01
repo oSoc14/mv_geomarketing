@@ -2,8 +2,8 @@
 	<div ng-click="item.expanded=!item.expanded">
 		<h2>{{item.name}}</h2>
 		<p class="smaller">
-			<span class="pull-right" ng-show="item.distance">
-				<span class="muted">within</span>&nbsp;{{item.distance}}&nbsp;m
+			<span class="pull-right">
+				<span class="muted">within</span>&nbsp;{{getDiff(stores[item.store_id-1].lat,stores[item.store_id-1].long)}}&nbsp;m
 			</span>
 			<span class="muted">by</span>&nbsp;{{ stores[item.store_id-1].name }}
 		</p>
@@ -11,7 +11,7 @@
 	<div ng-show="item.expanded">
 		<p>{{item.description}}</p>
 		<div class="qr-container"></div>
-		<button class="btn btn-primary" ng-click="generateQr()">Gen QR</button>
+		<button class="btn btn-primary" ng-click="generateQr(item.name)">Gen QR</button>
 	</div>
 </article>
 
