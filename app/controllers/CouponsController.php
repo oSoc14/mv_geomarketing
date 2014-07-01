@@ -38,13 +38,12 @@ class CouponsController extends \BaseController {
 	public function store()
 	{
 		Coupon::create(array(
-			'type' => Input::get('type'),
-			'time_begin' =>  Input::get('time_begin'),
+			'time_begin' =>  Input::get('time_begin')
 			'time_end' =>  Input::get('time_end'),
 			'radius' => Input::get('radius'),
 			'name' => Input::get('name'),
 			'description' => Input::get('description'),
-			'user_id' => Input::get('user')
+			'store_id' => Input::get('store_id')
 		));
 
 		return Response::json(array('success' => true));

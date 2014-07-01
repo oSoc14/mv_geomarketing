@@ -18,8 +18,9 @@ class CreateStoresTable extends Migration {
 			$table->text('name');
 			$table->text('password');
 			$table->float('lat');
+			$table->mediumText('description');
 			$table->float('long');
-			$table->text('adres');
+			$table->text('address');
 			$table->timestamps();
 		});
 	}

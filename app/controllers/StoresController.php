@@ -17,14 +17,6 @@ class StoresController extends \BaseController {
 	 */
 	public function index()
 	{
-                /*$store = new Store;
-                $store->name = 'test';
-                $store->password = Hash::make('test');
-                $store->lat = 50.80009;
-                $store->long = 3.26968;
-                $store->adres = 'President Kennedypark 10, 8500 Kortrijk';
-                $store->save();*/
-		
 		return Response::json(Store::all());
 	}
 
@@ -47,10 +39,10 @@ class StoresController extends \BaseController {
 	{
 		Store::create(array(
 			'name' => Input::get('name'),
-			'password' => Hash::make(Input::get('password')),
+			'password' => Hash::make('Input::get('password'),
 			'lat' => Input::get('lat'),
 			'long' => Input::get('long'),
-			'adres' => Input::get('addres')
+			'address' => Input::get('address')
 		));
 
 		return Response::json(array('success' => true));
