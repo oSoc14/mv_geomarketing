@@ -18,6 +18,6 @@ class Store extends \Eloquent implements UserInterface, RemindableInterface {
 	protected $hidden = array('password', 'created_at', 'updated_at');
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ['name', 'password', 'lat', 'long', 'address'];
 
 }

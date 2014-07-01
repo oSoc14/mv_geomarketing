@@ -8,6 +8,6 @@ class Coupon extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ["store_id", "time_begin", "time_end", "radius", "name", "description"];
 
 }

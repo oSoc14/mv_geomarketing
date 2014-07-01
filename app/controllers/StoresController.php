@@ -7,7 +7,7 @@ class StoresController extends \BaseController {
          */
         public function __construct()
         {
-              $this->beforeFilter('basic.once');
+              // $this->beforeFilter('basic.once');
         }
 
 	/**
@@ -42,7 +42,8 @@ class StoresController extends \BaseController {
 			'password' => Hash::make(Input::get('password')),
 			'lat' => Input::get('lat'),
 			'long' => Input::get('long'),
-			'address' => Input::get('address')
+			'address' => Input::get('address'),
+			'description' => Input::get('description')
 		));
 
 		return Response::json(array('success' => true));

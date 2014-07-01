@@ -13,13 +13,8 @@
 Route::get('/', function(){
 	return View::make('index');
 });
-Route::when('*', 'csrf', array('post', 'put', 'delete'));
 
 Route::group(array('prefix' => 'api'), function(){
 	Route::resource('stores', 'StoresController');
 	Route::resource('coupons', 'CouponsController');
-});
-
-App::missing(function($exception){
-	return View::make('index');
 });

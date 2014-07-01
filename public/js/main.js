@@ -92,7 +92,7 @@ angular.module('Voucher', [])
 	var all = [];
 	return {
 		fetch: function() {
-			return $http.get('posts.json').success(function(d) {
+			return $http.get('/api/coupons').success(function(d) {
 				all = angular.copy(d);
 			});
 		},
@@ -112,9 +112,6 @@ angular.module('Store', [])
 		fetch: function() {
 			return $http.get('/api/stores').success(function(d) {
 				all = angular.copy(d);
-				all[6].liked = true;
-				all[1].liked = true;
-				all[3].liked = true;
 				Alertify.log.success('Stores fetched');
 			});
 		},

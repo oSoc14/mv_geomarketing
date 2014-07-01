@@ -7,7 +7,7 @@ class CouponsController extends \BaseController {
          */
         public function __construct()
         {
-            $this->beforeFilter('basic.once');
+            // $this->beforeFilter('basic.once');
         }
 
 	/**
@@ -38,7 +38,7 @@ class CouponsController extends \BaseController {
 	public function store()
 	{
 		Coupon::create(array(
-			'time_begin' =>  Input::get('time_begin')
+			'time_begin' =>  Input::get('time_begin'),
 			'time_end' =>  Input::get('time_end'),
 			'radius' => Input::get('radius'),
 			'name' => Input::get('name'),
