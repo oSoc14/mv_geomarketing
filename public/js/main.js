@@ -16,6 +16,10 @@ angular.module('geom', ['ngRoute', 'Voucher', 'Store'])
 			templateUrl: 'html/account.html',
 			controller: 'AccountCtrl'
 		});
+		$routeProvider.when('/forms', {
+			templateUrl: 'html/forms.html',
+			controller: 'FormCtrl'
+		});
 
 		$routeProvider.otherwise({
 			redirectTo: '/actions'
@@ -45,24 +49,38 @@ angular.module('geom', ['ngRoute', 'Voucher', 'Store'])
 
 .controller('ActionsCtrl', function($scope, $rootScope) {
 	$rootScope.page = 'actions';
-	console.log('test')
 })
 
 .controller('StoresCtrl', function($scope, $rootScope) {
 	$rootScope.page = 'stores';
-	console.log('test')
 })
-
 
 .controller('VoucherCtrl', function($scope, $rootScope, $location) {
 	$rootScope.page = 'detail';
-	console.log('test')
 })
-
 
 .controller('AccountCtrl', function($scope, $rootScope, $location) {
 	$rootScope.page = 'account';
-	console.log('test')
+})
+
+.controller('FormCtrl', function($scope, $rootScope, $http) {
+	$rootScope.page = 'forms';
+
+	$scope.newVoucher = function(data){
+		console.log(data)
+		return $http.post('http://localhost:8000/api/coupons/store', data).success(function(d) {
+		console.log(d)
+			Alertify.log.success('posted');
+		});
+	};
+
+	$scope.newStore = function(data){
+		console.log(data)
+		return $http.post('http://localhost:8000/api/stores/store', data).success(function(d) {
+		console.log(d)
+			Alertify.log.success('posted');
+		});
+	};
 })
 
 /* Modules */

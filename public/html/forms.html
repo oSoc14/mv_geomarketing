@@ -1,0 +1,17 @@
+<article ng-init="voucher={}">
+	<p>id? {{ voucher.id }}</p>
+	<p><input type="text" ng-model="voucher.name" placeholder="name" class="form-control"></p>
+	<p><input type="text" ng-model="voucher.info" placeholder="info" class="form-control"></p>
+	<p><input type="text" ng-model="voucher.store" placeholder="store" class="form-control"></p>
+	<p><button type="button" ng-click="newVoucher(voucher)" class="btn btn-primary">Submit</button></p>
+</article>
+
+<article>
+	<p>id? {{ store.id }}</p>
+	<p><input type="text" ng-model="store.name" placeholder="name" class="form-control"></p>
+	<p><input type="text" ng-model="store.info" placeholder="info" class="form-control"></p>
+	<p><input type="text" ng-model="store.address" placeholder="address" class="form-control"></p>
+	<p><input type="text" ng-model="store.lat" placeholder="lat" class="form-control"></p>
+	<p><input type="text" ng-model="store.long" placeholder="long" class="form-control"></p>
+	<p><button type="button" ng-click="newStore(store)" class="btn btn-primary">Submit</button></p>
+</article>

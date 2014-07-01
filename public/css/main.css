@@ -23,6 +23,13 @@ header h1{
 }
 
 /* Typography */
+h1 a{
+	color: #fff
+}
+h1 a:hover,h1 a:focus{
+	color: #fff;
+	text-decoration: none;
+}
 article{
 	background: #fff;
 overflow: auto;
