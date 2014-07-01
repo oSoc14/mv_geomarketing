@@ -7,6 +7,8 @@ class Store extends \Eloquent {
 		// 'title' => 'required'
 	];
 
+	protected $hidden = array('password', 'created_at', 'updated_at');
+
 	// Don't forget to fill this array
 	protected $fillable = [];
 

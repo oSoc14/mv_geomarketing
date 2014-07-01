@@ -13,7 +13,8 @@ return array(
 	|
 	*/
 
-	'paths' => array(__DIR__.'/../views'),
+	// make laravel look in public/views for view files
+	'paths' => array(__DIR__.'/../../public/views'),
 
 	/*
 	|--------------------------------------------------------------------------
