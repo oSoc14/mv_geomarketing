@@ -39,7 +39,7 @@ class StoresController extends \BaseController {
 	{
 		Store::create(array(
 			'name' => Input::get('name'),
-			'password' => Hash::make('Input::get('password'),
+			'password' => Hash::make(Input::get('password')),
 			'lat' => Input::get('lat'),
 			'long' => Input::get('long'),
 			'address' => Input::get('address')
