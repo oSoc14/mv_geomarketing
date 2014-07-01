@@ -15,7 +15,7 @@
 <body ng-controller="MainCtrl" ng-class="{'qr-active':qrActive}">
 	<header>
 		<div class="container">
-			<h1>GeoMarketing</h1>
+			<h1><a href="#/forms">GeoMarketing</a></h1>
 			<nav>
 				<ul>
 					<li><a href="#/actions" ng-class="{active:page=='actions'}">Actions</a></li>

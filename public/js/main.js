@@ -16,6 +16,10 @@ angular.module('geom', ['ngRoute', 'Voucher', 'Store'])
 			templateUrl: 'html/account.html',
 			controller: 'AccountCtrl'
 		});
+		$routeProvider.when('/forms', {
+			templateUrl: 'html/forms.html',
+			controller: 'FormCtrl'
+		});
 
 		$routeProvider.otherwise({
 			redirectTo: '/actions'
@@ -31,6 +35,8 @@ angular.module('geom', ['ngRoute', 'Voucher', 'Store'])
 	Stores.fetch().success(function(){
 		$scope.stores = Stores.get();
 	});
+	$scope.storePredicate = 'liked';
+	$scope.user = {name:'Michiel De Wilde'};
 
 	$scope.generateQr = function(id){
 		$scope.qrActive = true;
@@ -45,24 +51,38 @@ angular.module('geom', ['ngRoute', 'Voucher', 'Store'])
 
 .controller('ActionsCtrl', function($scope, $rootScope) {
 	$rootScope.page = 'actions';
-	console.log('test')
 })
 
 .controller('StoresCtrl', function($scope, $rootScope) {
 	$rootScope.page = 'stores';
-	console.log('test')
 })
-
 
 .controller('VoucherCtrl', function($scope, $rootScope, $location) {
 	$rootScope.page = 'detail';
-	console.log('test')
 })
-
 
 .controller('AccountCtrl', function($scope, $rootScope, $location) {
 	$rootScope.page = 'account';
-	console.log('test')
+})
+
+.controller('FormCtrl', function($scope, $rootScope, $http) {
+	$rootScope.page = 'forms';
+
+	$scope.newVoucher = function(data){
+		console.log(data)
+		return $http.post('/api/coupons/', data).success(function(d) {
+		console.log(d)
+			Alertify.log.success('posted');
+		});
+	};
+
+	$scope.newStore = function(data){
+		console.log(data)
+		return $http.post('/api/stores/', data).success(function(d) {
+		console.log(d)
+			Alertify.log.success('posted');
+		});
+	};
 })
 
 /* Modules */
@@ -92,6 +112,9 @@ angular.module('Store', [])
 		fetch: function() {
 			return $http.get('http://localhost:8000/api/stores').success(function(d) {
 				all = angular.copy(d);
+				all[6].liked = true;
+				all[1].liked = true;
+				all[3].liked = true;
 				Alertify.log.success('Stores fetched');
 			});
 		},
