@@ -1,15 +1,15 @@
 <article ng-repeat="(key, item) in vouchers">
 	<div ng-click="item.expanded=!item.expanded">
-		<h2>{{item.text}}</h2>
+		<h2>{{item.name}}</h2>
 		<p class="smaller">
-			<span class="pull-right">
+			<span class="pull-right" ng-show="item.distance">
 				<span class="muted">within</span>&nbsp;{{item.distance}}&nbsp;m
 			</span>
-			<span class="muted">by</span>&nbsp;{{item.username}}
+			<span class="muted">by</span>&nbsp;{{ stores[item.store_id-1].name }}
 		</p>
 	</div>
 	<div ng-show="item.expanded">
-		<p>{{item.info}}</p>
+		<p>{{item.description}}</p>
 		<div class="qr-container"></div>
 		<button class="btn btn-primary" ng-click="generateQr()">Gen QR</button>
 	</div>

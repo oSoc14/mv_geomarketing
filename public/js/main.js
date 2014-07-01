@@ -71,7 +71,7 @@ angular.module('geom', ['ngRoute', 'Voucher', 'Store'])
 	$scope.newVoucher = function(data){
 		console.log(data)
 		return $http.post('/api/coupons/', data).success(function(d) {
-		console.log(d)
+			console.log(d)
 			Alertify.log.success('posted');
 		});
 	};
@@ -79,7 +79,7 @@ angular.module('geom', ['ngRoute', 'Voucher', 'Store'])
 	$scope.newStore = function(data){
 		console.log(data)
 		return $http.post('/api/stores/', data).success(function(d) {
-		console.log(d)
+			console.log(d)
 			Alertify.log.success('posted');
 		});
 	};
@@ -112,6 +112,12 @@ angular.module('Store', [])
 		fetch: function() {
 			return $http.get('/api/stores').success(function(d) {
 				all = angular.copy(d);
+				if(all[6])
+					all[6].liked = true;
+				if(all[1])
+					all[1].liked = true;
+				if(all[3])
+					all[3].liked = true;
 				Alertify.log.success('Stores fetched');
 			});
 		},

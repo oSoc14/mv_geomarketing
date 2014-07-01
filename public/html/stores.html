@@ -6,9 +6,8 @@
   </svg>
   <h2 ng-click="item.expanded=!item.expanded;loadMap()">{{item.name}}</h2>
 	<div ng-show="item.expanded">
-		<p class="wrapped">{{item.adres}}</p>
-		<p>{{item.long}}</p>
-		<p>{{item.lat}}</p>
+		<p class="wrapped"><span class="muted">Address</span> {{item.address}}</p>
+		<p>{{item.description}}</p>
 		<p><a href="">Look at map</a></p>
 	</div>
 </article>
