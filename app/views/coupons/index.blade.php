@@ -1,0 +1,1 @@
+/home/vagrant/code/mv_geomarketing/app/views/coupons/index.blade.php
