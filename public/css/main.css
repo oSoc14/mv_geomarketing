@@ -49,6 +49,9 @@ article h2{
 	margin:0;
 }
 article p{
+	margin:8px 0; 
+}
+article .smaller{
 	margin:8px 0 0; 
 }
 .smaller{

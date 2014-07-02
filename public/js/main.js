@@ -127,8 +127,8 @@ angular.module('Store', [])
 					all[6].liked = 1;
 				if(all[1])
 					all[1].liked = 1;
-				if(all[3])
-					all[3].liked = 1;
+				if(all[2])
+					all[2].liked = 2;
 			});
 		},
 		get: function() {
